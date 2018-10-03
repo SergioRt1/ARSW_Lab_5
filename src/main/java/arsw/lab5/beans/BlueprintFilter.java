@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package arsw.lab5.services;
+package arsw.lab5.beans;
 
 /**
  *
- * @author 2135494
+ * @author sergio
  */
-public interface BlueprintPersistence {
+public interface BlueprintFilter {
     
 }
