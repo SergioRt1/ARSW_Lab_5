@@ -10,8 +10,6 @@ import arsw.lab5.model.Blueprint;
 import arsw.lab5.model.Point;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 import org.springframework.stereotype.Service;
 
 /**
@@ -24,27 +22,19 @@ public class RedundancyFilter implements BlueprintFilter {
     @Override
     public Blueprint filter(Blueprint blueprint) {
         List<Point> points = new ArrayList<>();
-        Integer lastX = null;
-        Integer lastY = null;
+        Point last = null;
+        if(!blueprint.getPoints().isEmpty()){
+            last = blueprint.getPoints().get(0);
+            points.add(last);
+        }
         for (Point pt : blueprint.getPoints()) {
-            if (pt.getX() != lastX || pt.getY() != lastY) {
+            if (pt.getX() != last.getX() || pt.getY() != last.getY()) {
                 points.add(pt);
-            } else {
-                lastX = pt.getX();
-                lastY = pt.getY();
-            }
+                last = pt;
+            } 
         }
         return new Blueprint(blueprint.getAuthor(), points);
 
-    }
-
-    @Override
-    public List<Blueprint> blueprintsFilter(List<Blueprint> blueprints) {
-        List<Blueprint> filterBlueprints = new ArrayList<>();
-        for (Blueprint blueprint : blueprints) {
-            filterBlueprints.add(filter(blueprint));
-        }
-        return filterBlueprints;
     }
 
 }

@@ -18,6 +18,10 @@ public class Point {
         this.y = y;
     }
 
+    public boolean equals(Point point) {
+        return this.getX() == point.getX() && this.getY() == point.getY();
+    }
+
     public int getX() {
         return x;
     }

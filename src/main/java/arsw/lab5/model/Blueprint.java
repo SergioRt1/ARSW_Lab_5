@@ -26,7 +26,8 @@ public class Blueprint {
         int i = 0;
         int size = blueprint.getPoints().size();
         while(equalPoints && i < size){
-            equalPoints &= blueprint.getPoints().get(i) == this.getPoints().get(i);
+            equalPoints &= blueprint.getPoints().get(i).equals(this.getPoints().get(i));
+            i++;
         }
         return  blueprint.getAuthor().equals(this.getAuthor()) && equalPoints;
     }
