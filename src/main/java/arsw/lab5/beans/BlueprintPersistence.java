@@ -17,7 +17,7 @@ public interface BlueprintPersistence {
 
     public List<Blueprint> blueprints() throws BlueprintException;
 
-    public List<Blueprint> blueprint(String author) throws BlueprintException;
+    public List<Blueprint> AuthorBlueprints(String author) throws BlueprintException;
 
     public void addBlueprint(Blueprint blueprint) throws BlueprintException;
 

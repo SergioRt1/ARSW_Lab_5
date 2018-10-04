@@ -10,12 +10,21 @@ package arsw.lab5.model;
  * @author 2135494
  */
 public class Point {
-    int x;
-    int y;
+    private int x;
+    private int y;
 
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+    
+    
 }

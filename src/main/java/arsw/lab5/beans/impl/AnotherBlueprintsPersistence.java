@@ -22,7 +22,7 @@ public class AnotherBlueprintsPersistence implements BlueprintPersistence{
     }
 
     @Override
-    public List<Blueprint> blueprint(String author) throws BlueprintException {
+    public List<Blueprint> AuthorBlueprints(String author) throws BlueprintException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

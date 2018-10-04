@@ -34,7 +34,7 @@ public class InMemoryBlueprintsPersistence implements BlueprintPersistence {
     }
 
     @Override
-    public List<Blueprint> blueprint(String author) throws BlueprintException {
+    public List<Blueprint> AuthorBlueprints(String author) throws BlueprintException {
         if (blueprintsByAuthor.containsKey(author)) {
             return blueprintsByAuthor.get(author);
         } else {
@@ -52,6 +52,7 @@ public class InMemoryBlueprintsPersistence implements BlueprintPersistence {
             autorsBlueprints.add(blueprint);
         } else {
             autorsBlueprints = new ArrayList<>();
+            autorsBlueprints.add(blueprint);
             blueprintsByAuthor.put(autor, autorsBlueprints);
         }
     }

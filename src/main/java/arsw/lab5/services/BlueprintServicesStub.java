@@ -27,12 +27,12 @@ public class BlueprintServicesStub implements BlueprintServices{
     
     @Override
     public List<Blueprint> getBlueprints() throws BlueprintException {
-        return bp.blueprints();
+        return filter.blueprintsFilter(bp.blueprints());
     }
 
     @Override
     public List<Blueprint> getBlueprintsByAuthor(String author) throws BlueprintException {
-        return bp.blueprint(author);
+        return filter.blueprintsFilter(bp.AuthorBlueprints(author));
     }
 
     @Override
