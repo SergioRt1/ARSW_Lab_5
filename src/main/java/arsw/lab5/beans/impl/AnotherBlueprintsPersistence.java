@@ -31,4 +31,10 @@ public class AnotherBlueprintsPersistence implements BlueprintPersistence{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public Blueprint getBlueprint(String author, String bprintname) throws BlueprintException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
 }

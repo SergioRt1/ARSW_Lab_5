@@ -7,6 +7,7 @@ package arsw.lab5.beans.impl;
 
 import arsw.lab5.beans.BlueprintPersistence;
 import arsw.lab5.model.Blueprint;
+import arsw.lab5.model.Tuple;
 import arsw.lab5.services.BlueprintException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,6 +24,12 @@ public class InMemoryBlueprintsPersistence implements BlueprintPersistence {
 
     private List<Blueprint> blueprints = new ArrayList<>();
     private Map<String, List<Blueprint>> blueprintsByAuthor = new HashMap<>();
+    private final Map<Tuple<String, String>, Blueprint> blueprintsMap = new HashMap<>();
+
+    public InMemoryBlueprintsPersistence() {
+        //load stub data
+
+    }
 
     @Override
     public List<Blueprint> blueprints() throws BlueprintException {
@@ -55,6 +62,16 @@ public class InMemoryBlueprintsPersistence implements BlueprintPersistence {
             autorsBlueprints.add(blueprint);
             blueprintsByAuthor.put(autor, autorsBlueprints);
         }
+        if (blueprintsMap.containsKey(new Tuple<>(blueprint.getAuthor(), blueprint.getName()))) {
+            throw new BlueprintException("The given blueprint already exists: " + blueprint);
+        } else {
+            blueprintsMap.put(new Tuple<>(blueprint.getAuthor(), blueprint.getName()), blueprint);
+        }
+    }
+
+    @Override
+    public Blueprint getBlueprint(String author, String bprintname) throws BlueprintException {
+        return blueprintsMap.get(new Tuple<>(author, bprintname));
     }
 
 }

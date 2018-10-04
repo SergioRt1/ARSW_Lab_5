@@ -39,5 +39,10 @@ public class BlueprintServicesStub implements BlueprintServices{
     public void addNewBlueprintToAuthor(Blueprint blueprint) throws BlueprintException{
         bp.addBlueprint(blueprint);
     }
+
+    @Override
+    public Blueprint getBlueprint(String author, String name) throws BlueprintException {
+        return bp.getBlueprint(author,name);
+    }
     
 }

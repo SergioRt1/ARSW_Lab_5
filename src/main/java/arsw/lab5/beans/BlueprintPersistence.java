@@ -21,4 +21,6 @@ public interface BlueprintPersistence {
 
     public void addBlueprint(Blueprint blueprint) throws BlueprintException;
 
+    public Blueprint getBlueprint(String author, String bprintname) throws BlueprintException;
+
 }

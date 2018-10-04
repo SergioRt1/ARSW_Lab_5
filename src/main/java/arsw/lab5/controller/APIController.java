@@ -29,12 +29,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/blueprint")
 public class APIController {
-    
+
     @Autowired
     BlueprintServices bps;
-    
+
     @GetMapping
-    public ResponseEntity<?> getBlueprintHandler() {
+    public ResponseEntity<?> getBlueprintsHandler() {
         try {
             return new ResponseEntity<>(bps.getBlueprints(), HttpStatus.ACCEPTED);
         } catch (BlueprintException ex) {
@@ -42,7 +42,7 @@ public class APIController {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
-    
+
     @GetMapping("/{author}")
     public ResponseEntity<?> getBlueprintByAuthorHandler(@PathVariable("author") String author) {
         try {
@@ -52,7 +52,17 @@ public class APIController {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
-    
+
+    @GetMapping("/{author}/{name}")
+    public ResponseEntity<?> getBlueprintHandler(@PathVariable("author") String author, @PathVariable("name") String name) {
+        try {
+            return new ResponseEntity<>(bps.getBlueprint(author, name), HttpStatus.ACCEPTED);
+        } catch (BlueprintException ex) {
+            Logger.getLogger(BlueprintException.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
     @PostMapping
     public ResponseEntity<?> postOrderHandler(@RequestBody Blueprint blueprint) {
         try {

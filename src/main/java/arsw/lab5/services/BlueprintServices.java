@@ -15,6 +15,8 @@ import java.util.List;
 public interface BlueprintServices {
 
     public List<Blueprint> getBlueprints() throws BlueprintException;
+    
+    public Blueprint getBlueprint(String author,String name) throws BlueprintException;
 
     public List<Blueprint> getBlueprintsByAuthor(String author) throws BlueprintException;
 
