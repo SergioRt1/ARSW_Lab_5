@@ -23,7 +23,7 @@ public class RedundancyFilter implements BlueprintFilter {
     public Blueprint filter(Blueprint blueprint) {
         List<Point> points = new ArrayList<>();
         Point last = null;
-        if(!blueprint.getPoints().isEmpty()){
+        if (!blueprint.getPoints().isEmpty()) {
             last = blueprint.getPoints().get(0);
             points.add(last);
         }
@@ -31,9 +31,9 @@ public class RedundancyFilter implements BlueprintFilter {
             if (pt.getX() != last.getX() || pt.getY() != last.getY()) {
                 points.add(pt);
                 last = pt;
-            } 
+            }
         }
-        return new Blueprint(blueprint.getAuthor(), points);
+        return new Blueprint(blueprint.getAuthor(), blueprint.getName(), points);
 
     }
 

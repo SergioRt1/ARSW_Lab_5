@@ -39,8 +39,8 @@ public class SubsamplingFilterTest {
         answer.add(new Point(0, 0));
         answer.add(new Point(6, 8));
 
-        Blueprint bp = new Blueprint("Sergio", points);
-        Blueprint ans = new Blueprint("Sergio", answer);
+        Blueprint bp = new Blueprint("Sergio","plano2", points);
+        Blueprint ans = new Blueprint("Sergio","plano2", answer);
         Blueprint fitered = filter.filter(bp);
 
         Assert.assertTrue("Must be equials", fitered.equals(ans));
@@ -70,8 +70,8 @@ public class SubsamplingFilterTest {
         answer.add(new Point(6, 8));
         answer.add(new Point(9, 10));
 
-        Blueprint bp = new Blueprint("Sergio", points);
-        Blueprint ans = new Blueprint("Sergio", answer);
+        Blueprint bp = new Blueprint("Sergio","plano2", points);
+        Blueprint ans = new Blueprint("Sergio","plano2", answer);
         Blueprint fitered = filter.filter(bp);
 
         Assert.assertTrue("Must be equials", fitered.equals(ans));

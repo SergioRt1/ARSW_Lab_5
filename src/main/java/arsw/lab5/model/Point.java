@@ -10,6 +10,7 @@ package arsw.lab5.model;
  * @author 2135494
  */
 public class Point {
+
     private int x;
     private int y;
 
@@ -29,6 +30,5 @@ public class Point {
     public int getY() {
         return y;
     }
-    
-    
+
 }

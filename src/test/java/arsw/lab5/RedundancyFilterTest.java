@@ -24,7 +24,7 @@ public class RedundancyFilterTest {
         points.add(new Point(1, 0));
         points.add(new Point(0, 1));
         points.add(new Point(0, 0));
-        Blueprint bp = new Blueprint("Sergio", points);
+        Blueprint bp = new Blueprint("Sergio","plano2", points);
         Blueprint fitered = filter.filter(bp);
         Assert.assertTrue("Must be equials", fitered.equals(bp));
     }
@@ -50,8 +50,8 @@ public class RedundancyFilterTest {
         answer.add(new Point(0, 0));
         answer.add(new Point(1, 1));
         
-        Blueprint bp = new Blueprint("Sergio", points);
-        Blueprint ans = new Blueprint("Sergio", answer);
+        Blueprint bp = new Blueprint("Sergio","plano2", points);
+        Blueprint ans = new Blueprint("Sergio","plano2", answer);
         Blueprint fitered = filter.filter(bp);
         
         Assert.assertTrue("Must be equials", fitered.equals(ans));
